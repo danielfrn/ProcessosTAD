@@ -22,7 +22,7 @@ void limparAspasDuplas(char *linha)
     linha[j] = '\0';
 }
 
-int lerArquivoCSV(const char *nomeArquivo, Processo processos[], int *total)
+int lerCSV(const char *nomeArquivo, Processo processos[], int *total)
 {
     FILE *arquivo = fopen(nomeArquivo, "r");
 
@@ -65,7 +65,7 @@ int lerArquivoCSV(const char *nomeArquivo, Processo processos[], int *total)
     return 1;
 }
 
-void ordenarPorId(Processo processos[], int total)
+void ordemId(Processo processos[], int total)
 {
     int i, j;
     for (i = 0; i < total - 1; i++)
@@ -91,7 +91,7 @@ time_t converterData(const char *data)
     return mktime(&t);
 }
 
-void ordenarPorData(Processo processos[], int total)
+void ordemData(Processo processos[], int total)
 {
     int i, j;
     for (i = 0; i < total - 1; i++)
@@ -108,7 +108,7 @@ void ordenarPorData(Processo processos[], int total)
     }
 }
 
-int contarPorClasse(Processo processos[], int total, int classe)
+int contadorClasse(Processo processos[], int total, int classe)
 {
     int cont = 0;
     for (int i = 0; i < total; i++)
@@ -150,7 +150,7 @@ int contarAssuntosUnicos(Processo processos[], int total)
     return total_unicos;
 }
 
-void listarProcessosComVariosAssuntos(Processo processos[], int total)
+void variosAssuntos(Processo processos[], int total)
 {
     for (int i = 0; i < total; i++)
     {
@@ -160,7 +160,7 @@ void listarProcessosComVariosAssuntos(Processo processos[], int total)
     }
 }
 
-int calcularDiasTramitando(const char *data)
+int calcularTramitacao(const char *data)
 {
     time_t hoje = time(NULL);
     time_t data_processo = converterData(data);
