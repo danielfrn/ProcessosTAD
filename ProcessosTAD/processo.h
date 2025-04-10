@@ -2,7 +2,7 @@
 #define PROCESSO_H
 
 #define MAX_ASSUNTOS 10
-#define MAX_PROCESSOS 500 //alterar a quantidade de processos lidos
+#define MAX_PROCESSOS 500 // alterar a quantidade de processos lidos
 
 typedef struct
 {
@@ -15,13 +15,13 @@ typedef struct
     int ano_eleicao;
 } Processo;
 
-int lerArquivoCSV(const char *nomeArquivo, Processo processos[], int *total);
-void ordenarPorId(Processo processos[], int total);
-void ordenarPorData(Processo processos[], int total);
-int contarPorClasse(Processo processos[], int total, int classe);
+int lerCSV(const char *nomeArquivo, Processo processos[], int *total);
+void ordemId(Processo processos[], int total);
+void ordemData(Processo processos[], int total);
+int contadorClasse(Processo processos[], int total, int classe);
 int contarAssuntosUnicos(Processo processos[], int total);
-void listarProcessosComVariosAssuntos(Processo processos[], int total);
-int calcularDiasTramitando(const char *data);
+void variosAssuntos(Processo processos[], int total);
+int calcularTramitacao(const char *data);
 void salvarCSV(const char *nomeArquivo, Processo processos[], int total);
 
 #endif
